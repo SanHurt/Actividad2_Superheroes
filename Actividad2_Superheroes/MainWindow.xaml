@@ -106,7 +106,7 @@
                                     Grid.Column="1">
                                 <GroupBox x:Name="groupBoxCheckBox">
                                     <StackPanel>
-                                        <CheckBox x:Name="checkBoxVengador">Vengador</CheckBox>
+                                        <CheckBox  x:Name="checkBoxVengador">Vengador</CheckBox>
                                         <CheckBox x:Name="checkBoxXMen">X-men</CheckBox>
                                     </StackPanel>
                                 </GroupBox>
