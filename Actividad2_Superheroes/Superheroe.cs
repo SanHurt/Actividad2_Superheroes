@@ -8,80 +8,93 @@ namespace Actividad2_Superheroes
         private string _nombre;
         public string Nombre
         {
-            get { return this._nombre; }
+            get => _nombre;
             set
             {
-                if (this._nombre != value)
+                if (_nombre != value)
                 {
-                    this._nombre = value;
-                    this.NotifyPropertyChanged("Nombre");
+                    _nombre = value;
+                    NotifyPropertyChanged("Nombre");
                 }
             }
         }
         private string _imagen;
         public string Imagen
         {
-            get { return this._imagen; }
+            get => _imagen;
             set
             {
-                if (this._imagen != value)
+                if (_imagen != value)
                 {
-                    this._imagen = value;
-                    this.NotifyPropertyChanged("Imagen");
+                    _imagen = value;
+                    NotifyPropertyChanged("Imagen");
                 }
             }
         }
+
         private bool _vengador;
         public bool Vengador
         {
-            get { return this._vengador; }
+            get => _vengador;
             set
             {
-                if (this._vengador != value)
+                if (_vengador != value)
                 {
-                    this._vengador = value;
-                    this.NotifyPropertyChanged("Vengador");
+                    _vengador = value;
+                    NotifyPropertyChanged("Vengador");
                 }
             }
         }
+
         private bool _xmen;
         public bool Xmen
         {
-            get { return this._xmen; }
+            get => _xmen;
             set
             {
-                if (this._xmen != value)
+                if (_xmen != value)
                 {
-                    this._xmen = value;
-                    this.NotifyPropertyChanged("XMen");
+                    _xmen = value;
+                    NotifyPropertyChanged("Xmen");
                 }
             }
         }
+
         private bool _heroe;
         public bool Heroe
         {
-            get { return this._heroe; }
+            get => _heroe;
             set
             {
-                if (this._heroe != value)
+                if (_heroe != value)
                 {
-                    this._heroe = value;
-                    this.NotifyPropertyChanged("Heroe");
+                    _heroe = value;
+                    NotifyPropertyChanged("Heroe");
                 }
             }
         }
+
         private bool _villano;
         public bool Villano
         {
-            get { return this._villano; }
+            get => _villano;
             set
             {
-                if (this._villano != value)
+                if (_villano != value)
                 {
-                    this._villano = value;
-                    this.NotifyPropertyChanged("Villano");
+                    _villano = value;
+                    NotifyPropertyChanged("Villano");
+                }
+                if (_villano)
+                {
+                    Vengador = false;
+                    Xmen = false;
                 }
             }
+        }
+
+        public Superheroe()
+        {
         }
 
         public Superheroe(string nombre, string imagen, bool vengador, bool xmen, bool heroe, bool villano)
@@ -93,26 +106,6 @@ namespace Actividad2_Superheroes
             Heroe = heroe;
             Villano = villano;
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-
-
-        private void NotifyPropertyChanged(string propertyName)
-        {
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public Superheroe()
-        {
-            Nombre = "";
-            Imagen = "";
-            Vengador = default;
-            Xmen = default;
-            Heroe = default;
-            Villano = default;
-        }
-                                                                                                                                                                                              
 
         public static List<Superheroe> GetSamples()
         {
@@ -127,6 +120,13 @@ namespace Actividad2_Superheroes
             ejemplos.Add(spiderman);
 
             return ejemplos;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(string propertyName)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

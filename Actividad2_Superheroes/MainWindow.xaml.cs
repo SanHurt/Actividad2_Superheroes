@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -26,12 +27,12 @@ namespace Actividad2_Superheroes
             buttonAceptar.IsDefault = true;
             superheroes = Superheroe.GetSamples();
             ActualizaLista((int)CambiarPersonaje.Actual);
-           
+
         }
         private void AddSuperheroe(Superheroe s)
         {
             superheroes.Add(s);
-            MessageBox.Show("Superhéroe añadido");
+            MessageBox.Show("Superhéroe añadido", "Superheroes", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         private void ActualizaLista(CambiarPersonaje tipo)
         {
@@ -47,7 +48,6 @@ namespace Actividad2_Superheroes
             if (numeroActualSuperHeroe < superheroes.Count)
                 ActualizaLista(CambiarPersonaje.Siguiente);
         }
-
         private void Anterior_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (1 < numeroActualSuperHeroe)
@@ -81,6 +81,6 @@ namespace Actividad2_Superheroes
             radioButtonHeroe.IsChecked = true;
             radioButtonVillano.IsChecked = false;
         }
-        
     }
 }
+
