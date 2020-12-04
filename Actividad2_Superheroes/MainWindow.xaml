@@ -92,9 +92,9 @@
                                 <GroupBox x:Name="groupboxRadioButton">
                                     <StackPanel>
                                         <RadioButton x:Name="radioButtonHeroe"
-                                                     IsChecked="True"
-                                                     Checked="radioButtonHeroe_Checked">Héroe</RadioButton>
-                                        <RadioButton x:Name="radioButtonVillano">Villano</RadioButton>
+                                                     IsChecked="{Binding Path=Heroe}">Héroe</RadioButton>
+                                        <RadioButton x:Name="radioButtonVillano"
+                                                     IsChecked="{Binding Path= Villano}">Villano</RadioButton>
                                     </StackPanel>
                                 </GroupBox>
                             </Border>
@@ -105,9 +105,11 @@
                                     Margin="10"
                                     Grid.Column="1">
                                 <GroupBox x:Name="groupBoxCheckBox">
-                                    <StackPanel>
-                                        <CheckBox  x:Name="checkBoxVengador">Vengador</CheckBox>
-                                        <CheckBox x:Name="checkBoxXMen">X-men</CheckBox>
+                                    <StackPanel IsEnabled="{Binding ElementName=radioButtonHeroe, Path=IsChecked}">
+                                        <CheckBox  x:Name="checkBoxVengador"
+                                                   IsChecked="{Binding Path=Vengador}">Vengador</CheckBox>
+                                        <CheckBox x:Name="checkBoxXMen"
+                                                  IsChecked="{Binding Path=Xmen}">X-men</CheckBox>
                                     </StackPanel>
                                 </GroupBox>
                             </Border>
@@ -130,9 +132,9 @@
                             BorderBrush="Black"
                             BorderThickness="2"
                             CornerRadius="5"
-                            Margin="10">
-                        <StackPanel VerticalAlignment="Center"
-                            Background="LightSalmon">
+                            Margin="10"
+                            Background="AntiqueWhite">
+                        <StackPanel VerticalAlignment="Center">
                             <Image x:Name="imagenNuevoSuperheroe"
                                    Source="{Binding ElementName=textBoxImagen, Path=Text}"></Image>
                         </StackPanel>

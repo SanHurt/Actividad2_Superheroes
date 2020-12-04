@@ -24,7 +24,6 @@ namespace Actividad2_Superheroes
         {
             InitializeComponent();
             buttonAceptar.IsDefault = true;
-            groupBoxCheckBox.IsEnabled = true;
             superheroes = Superheroe.GetSamples();
             ActualizaLista((int)CambiarPersonaje.Actual);
            
@@ -82,12 +81,6 @@ namespace Actividad2_Superheroes
             radioButtonHeroe.IsChecked = true;
             radioButtonVillano.IsChecked = false;
         }
-
-        private void radioButtonHeroe_Checked(object sender, RoutedEventArgs e)
-        {
-            groupBoxCheckBox.IsEnabled = true;
-        }
-
         
     }
 }
