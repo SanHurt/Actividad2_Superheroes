@@ -13,6 +13,17 @@
                            Heroe="True"></local:Superheroe>
         <local:Converter x:Key="conversor"></local:Converter>
         <local:ConverterBackGround x:Key="converterBackground"></local:ConverterBackGround>
+        <Style TargetType="Border" x:Key="bordes">
+            <Setter Property="BorderBrush" Value="Black"></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
+            <Setter Property="Width" Value="170"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="Margin" Value="10"></Setter>
+        </Style>
+        <Style TargetType="Image" x:Key="iconos">
+            <Setter Property="Width" Value="50"></Setter>
+            <Setter Property="DockPanel.Dock" Value="Right"></Setter>
+        </Style>
     </Window.Resources>
     <DockPanel>
         <TabControl>
@@ -23,20 +34,21 @@
                     <DockPanel LastChildFill="False"
                                DockPanel.Dock="Top">
                         <Image Source="avengers.png"
-                               Width="50"
-                               DockPanel.Dock="Right"
+                               Style="{StaticResource iconos}"
                                Visibility="{Binding Path=Vengador, Converter={StaticResource conversor}}">
                         </Image>
                         <Image Source="xmen.png"
-                               Width="50"
-                               DockPanel.Dock="Right"
+                               Style="{StaticResource iconos}"
                                Visibility="{Binding Path=Xmen, Converter={StaticResource conversor}}">
                         </Image>
                         <TextBlock Text="{Binding Path=Nombre}"
                                    DockPanel.Dock="Left"
                                    FontSize="50"
                                    FontWeight="Bold"
-                                   Foreground="White"></TextBlock>
+                                   Foreground="White">
+                            <TextBlock.Effect>
+                                <DropShadowEffect/>
+                            </TextBlock.Effect></TextBlock>
                         <!--Dos Imagenes (xmen o vengador) y nombre. Utilizar conversores-->
                     </DockPanel>
                     <StackPanel DockPanel.Dock="Bottom"
@@ -77,11 +89,7 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="60"></RowDefinition>
                             </Grid.RowDefinitions>
-                            <Border BorderBrush="Black"
-                                    BorderThickness="1"
-                                    Width="170"
-                                    HorizontalAlignment="Left"
-                                    Margin="10">
+                            <Border Style="{StaticResource bordes}">
                                 <StackPanel>
                                     <RadioButton x:Name="radioButtonHeroe"
                                                  IsChecked="{Binding Path=Heroe}">Héroe</RadioButton>
@@ -89,11 +97,7 @@
                                                  IsChecked="{Binding Path=Villano}">Villano</RadioButton>
                                 </StackPanel>
                             </Border>
-                            <Border BorderBrush="Black"
-                                    BorderThickness="1"
-                                    Width="170"
-                                    HorizontalAlignment="Left"
-                                    Margin="10"
+                            <Border Style="{StaticResource bordes}"
                                     Grid.Column="1">
                                 <StackPanel IsEnabled="{Binding ElementName=radioButtonHeroe, Path=IsChecked}">
                                     <CheckBox  x:Name="checkBoxVengador"
